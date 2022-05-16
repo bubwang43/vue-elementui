@@ -32,4 +32,16 @@ public class PdfGraphicController {
         return responseEntity.getBody();
     }
 
+    @GetMapping("/graphics/should")
+    public Map<String, Object> search(@RequestParam("content") String content,
+                                      @RequestParam("pageNumber") int pageNumber, @RequestParam("pageSize") int pageSize) {
+        Map<String, Object> map = new HashMap<>();
+        map.put("content", content);
+        map.put("pageNumber", pageNumber);
+        map.put("pageSize", pageSize);
+
+        ResponseEntity<Map> responseEntity = restTemplate.getForEntity("http://127.0.0.1:8089/pdfgraphic/graphics/should?content={content}&pageNumber={pageNumber}&pageSize={pageSize}", Map.class, map);
+        return responseEntity.getBody();
+    }
+
 }
