@@ -23,11 +23,12 @@
         data() {
             return {
                 items: [
-                    // {
-                    //     icon: 'el-icon-setting',
-                    //     index: '/home',
-                    //     title: '首页'
-                    // },
+                    {
+                        icon: 'el-icon-setting',
+                        // index: '/home',
+                      index: '/users',
+                        title: '首页'
+                    },
                     // {
                     //     icon: 'el-icon-menu',
                     //     index: '2',
@@ -45,7 +46,7 @@
         beforeMount() {
             var meuns = sessionStorage.getItem('meuns');
             var qs = require('qs');
-            this.items = qs.parse(meuns);
+            // this.items = qs.parse(meuns);
         },
         computed: {
             onRoutes(){

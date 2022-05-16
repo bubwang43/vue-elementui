@@ -14,3 +14,6 @@ export const loadData = params => { return Axios.get(`${BASE_PATH}/home/loadData
 
 // 文件上传地址
 export const uploadFile = `${BASE_PATH}/file/upload`;
+
+// 获取图表列表
+export const getGraphics = params => { return Axios.get(`${BASE_PATH}/pdfgraphic/graphics/should`, { params: params }).then(res => res.data); };

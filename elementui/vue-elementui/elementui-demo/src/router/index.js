@@ -24,7 +24,8 @@ export default new Router({
         },
         {
           path: '/users',
-          component: resolve => require(['../components/user/Users.vue'], resolve)
+          // component: resolve => require(['../components/user/Users.vue'], resolve)
+          component: resolve => require(['../components/PdfGraphics.vue'], resolve)
         },
         {
           path: '/user/info',
