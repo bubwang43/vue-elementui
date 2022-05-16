@@ -56,17 +56,17 @@ public class HTTPBasicAuthorizeFilter implements Filter {
 		}
         System.err.println(auth);
         //验证TOKEN
-        if (!StringUtils.hasText(auth)) {
-			PrintWriter print = httpResponse.getWriter();
-        	print.write(JsonUtils.toJson(ResponseData.fail("非法请求【缺少Authorization信息】", ResponseCode.NO_AUTH_CODE.getCode())));  
-            return;  
-		}
-        JWTUtils.JWTResult jwt = JWTUtils.checkToken(auth);
-		if (!jwt.isStatus()) {
-			PrintWriter print = httpResponse.getWriter();
-			print.write(JsonUtils.toJson(ResponseData.fail(jwt.getMsg(), jwt.getCode())));  
-			return;
-		}
+//        if (!StringUtils.hasText(auth)) {
+//			PrintWriter print = httpResponse.getWriter();
+//        	print.write(JsonUtils.toJson(ResponseData.fail("非法请求【缺少Authorization信息】", ResponseCode.NO_AUTH_CODE.getCode())));
+//            return;
+//		}
+//        JWTUtils.JWTResult jwt = JWTUtils.checkToken(auth);
+//		if (!jwt.isStatus()) {
+//			PrintWriter print = httpResponse.getWriter();
+//			print.write(JsonUtils.toJson(ResponseData.fail(jwt.getMsg(), jwt.getCode())));
+//			return;
+//		}
 		
 		chain.doFilter(httpRequest, response);
 	}
