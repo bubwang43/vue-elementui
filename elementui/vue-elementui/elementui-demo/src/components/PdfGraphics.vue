@@ -33,7 +33,7 @@
             <a :href="scope.row.url" target="_blank" title="查看最大化图片">
               <img :src="scope.row.url" style="width: 300px;height: 300px">
             </a>
-            <img slot="reference" :src="scope.row.url" style="width: 200px;height: 200px; cursor:pointer">
+            <img slot="reference" :src="scope.row.url" style="width: 400px;height: 400px; cursor:pointer">
           </el-popover>
         </template>
       </el-table-column>
