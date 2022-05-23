@@ -1,6 +1,7 @@
 package com.cxytiandi.elementui.controller;
 
 import com.cxytiandi.elementui.entity.GraphicsEsEntity;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,6 +20,10 @@ public class PdfGraphicController {
     @Resource
     private RestTemplate restTemplate;
 
+    @Value("${es.demo.hostport}")
+    private String esdemoHostPort;
+
+
     @GetMapping("/graphics")
     public Map<String, Object> search(@RequestParam("field") String field, @RequestParam("key") String key,
                                          @RequestParam("pageNumber") int pageNumber, @RequestParam("pageSize") int pageSize) {
@@ -27,8 +32,8 @@ public class PdfGraphicController {
         map.put("key", key);
         map.put("pageNumber", pageNumber);
         map.put("pageSize", pageSize);
-
-        ResponseEntity<Map> responseEntity = restTemplate.getForEntity("http://127.0.0.1:8089/pdfgraphic/graphics?field={field}&key={key}&pageNumber={pageNumber}&pageSize={pageSize}", Map.class, map);
+        String url = esdemoHostPort + "/pdfgraphic/graphics?field={field}&key={key}&pageNumber={pageNumber}&pageSize={pageSize}";
+        ResponseEntity<Map> responseEntity = restTemplate.getForEntity(url, Map.class, map);
         return responseEntity.getBody();
     }
 
@@ -39,8 +44,8 @@ public class PdfGraphicController {
         map.put("content", content);
         map.put("pageNumber", pageNumber);
         map.put("pageSize", pageSize);
-
-        ResponseEntity<Map> responseEntity = restTemplate.getForEntity("http://127.0.0.1:8089/pdfgraphic/graphics/should?content={content}&pageNumber={pageNumber}&pageSize={pageSize}", Map.class, map);
+        String url = esdemoHostPort + "/pdfgraphic/graphics/should?content={content}&pageNumber={pageNumber}&pageSize={pageSize}";
+        ResponseEntity<Map> responseEntity = restTemplate.getForEntity(url, Map.class, map);
         return responseEntity.getBody();
     }
 

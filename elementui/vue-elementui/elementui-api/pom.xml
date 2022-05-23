@@ -5,7 +5,7 @@
 	<groupId>com.cxytiandi</groupId>
 	<artifactId>elementui-api</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
+	<packaging>war</packaging>
 
 	<name>elementui-api</name>
 	<url>http://maven.apache.org</url>
@@ -40,9 +40,17 @@
 			<artifactId>lombok</artifactId>
 			<version>1.18.2</version>
 		</dependency>
+
+		<!--打包不参与，也就是打包去掉tomcat-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
+			<scope>provided</scope>
+		</dependency>
 	</dependencies>
 
 	<build>
+		<finalName>elementui-api</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>

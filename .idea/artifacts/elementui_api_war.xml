@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="elementui-api:war">
+    <output-path>$PROJECT_DIR$/elementui/vue-elementui/elementui-api/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>elementui-api</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="elementui-api.war">
+      <element id="artifact" artifact-name="elementui-api:war exploded" />
+    </root>
+  </artifact>
+</component>

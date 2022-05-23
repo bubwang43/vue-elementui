@@ -3,7 +3,7 @@
     <el-form :inline="true" :model="formInline" class="demo-form-inline">
 
       <el-form-item>
-        <el-input v-model="formInline.content" placeholder="研报/图表标题"></el-input>
+        <el-input v-model="formInline.content" placeholder="研报/图表标题" size="50"></el-input>
       </el-form-item>
 
       <el-form-item>
@@ -13,7 +13,7 @@
     </el-form>
 
     <el-table :data="tableData" style="width: 100%" v-loading="loading2" element-loading-text="拼命加载中" @selection-change="handleSelectionChange">
-      <el-table-column prop="reportTitle" label="研报"></el-table-column>
+      <el-table-column prop="reportTitle" label="研报标题"></el-table-column>
       <el-table-column prop="title" label="图表标题"></el-table-column>
 <!--      <el-table-column prop="url" label="图片"></el-table-column>-->
 <!--      <el-table-column-->
